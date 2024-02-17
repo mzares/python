@@ -32,7 +32,7 @@
          <div class="container">
             <div class="row">
                <div class="col-md-2">
-                  <img src="{% static 'img/logo.png'%}" alt="" class="logo">
+                  <img src="{% static 'img/logo.png' %}" alt="" class="logo">
                </div>
                <div class="col-md-5">
                   <form method="" action="" class="search-form">
@@ -139,27 +139,30 @@
                      </div>
                   </div>
                </div>
-               {% for n in n_news %}
+               {% for object in object_list %}
                   <div class="col-md-4">
-                     <a href="#">
+                     <a href="{{ object.url }}">
                         <div class="post-content">
                            <figure>
-                              <img src="{% static 'img/blog/blog7.jpg'%}">
+                              <img src="{{ object.image}}">
                               <figcaption class="hover-fig">
                                  <i class="fa fa-plus"></i>
                               </figcaption>
                               <figcaption class="date-fig">
-                                 <span>123</span>
+                                 <span>{{ object.date }}</span>
                                  <i class="fa fa-date"></i>
                               </figcaption>
                            </figure>
-                           <h4>{{ n }}</h4>
-                           <p></p>
+                           <h4>{{ object.title }}</h4>
+                           <p>{{ object.desc }}</p>
                         </div>
                      </a>
                   </div>
                {% endfor %}
                
+               <!-- {% for article in html_content %}
+                  {% include 'article_snippet.html' with article=article %}
+               {% endfor %} -->
                </div>
             </div>
          </div>
@@ -210,9 +213,9 @@
                               <figure>
                                  <img src="{% static 'img/blog/blog7.jpg'%}" alt="">
                               </figure>
-                              {% for n in n_news %}
-                              <h4>{{n}}</h4>
-                              {% endfor %}
+                              
+                              <h4>تست</h4>
+                              
                               <span><i class="fa fa-calendar-o"></i>98/8/7</span>
                            </div>
                         </a>
